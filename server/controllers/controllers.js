@@ -2,7 +2,7 @@ const Input = require('../models/models');
 
 exports.getFunc = async(req, res) => {
   try{
-    const input = await Input.find({});
+    const input = await Input.find();
     res.json(input);
     res.status(200)
   } catch(e){

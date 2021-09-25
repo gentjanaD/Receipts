@@ -4,7 +4,6 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import Home from './screens/Home';
 import FormScreen from './screens/FormScreen';
 import Summary from './screens/Summary';
@@ -15,21 +14,23 @@ import People from './screens/People';
 import Locations from './screens/Locations';
 import Lessons from './screens/Lessons';
 
-const Stack = createStackNavigator(); 
+const RootStack = createStackNavigator(); 
+
 const  App = () => {
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name = "Home" component = {Home} />
-        <Stack.Screen name = "FormScreen" component = {FormScreen} />
-        <Stack.Screen name = "Summary" component = {Summary} />
-        <Stack.Screen name = "EventOverview" component = {EventOverview} />
-        <Stack.Screen name = "Category" component = {Category} />
-        <Stack.Screen name = "Memories" component = {Memories} />
-        <Stack.Screen name = "People" component = {People} />
-        <Stack.Screen name = "Locations" component = {Locations} />
-        <Stack.Screen name = "Lessons" component = {Lessons} />
-      </Stack.Navigator>
+      <RootStack.Navigator>
+        <RootStack.Screen name = "Home" component = {Home} options ={{headerShown: false}}/>
+        <RootStack.Screen name = "FormScreen" component = {FormScreen} />
+        <RootStack.Screen name = "Summary" component = {Summary} />
+        <RootStack.Screen name = "EventOverview" component = {EventOverview} />
+        <RootStack.Screen name = "Category" component = {Category} />
+        <RootStack.Screen name = "Memories" component = {Memories} options ={{headerShown: false}}/>
+        <RootStack.Screen name = "People" component = {People} />
+        <RootStack.Screen name = "Locations" component = {Locations} />
+        <RootStack.Screen name = "Lessons" component = {Lessons} />
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 }

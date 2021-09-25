@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text,TouchableOpacity} from 'react-native';
+import {View, Text,TouchableOpacity, SafeAreaView} from 'react-native';
 // import { NavigationContainer } from "@react-navigation/native";
 const Home = ({navigation}) => {
   return (
-    <View>
+    <SafeAreaView>
       <TouchableOpacity onPress = {()=>{
         navigation.navigate('FormScreen')
       }}>
@@ -15,7 +15,7 @@ const Home = ({navigation}) => {
       }}>
         <Text>All Memories</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 export default Home; 

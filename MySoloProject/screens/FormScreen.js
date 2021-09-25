@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import PositiveForm from '../components/forms/PositiveForm';
 // import { NavigationContainer } from "@react-navigation/native";
 
 
@@ -18,6 +19,7 @@ const FormScreen = ({navigation}) => {
       }}>
         <Text>CANCEL</Text>
       </TouchableOpacity>
+      <PositiveForm/>
     </View>
   )
 }

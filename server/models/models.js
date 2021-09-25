@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const inputSchema = new Schema({
   positive: {type: Boolean, required: true},
-  eventTitle: {type : String, required: true},
   category: {type : String, required: true},
+  title: {type : String, required: true},
   date: { type: Date, default: Date.now() },
   person: String,
   location: String,
@@ -15,8 +15,8 @@ const inputSchema = new Schema({
   share: Boolean,
   learned: String,
   plan: String
-
 });
+
 mongoose.connect('mongodb://localhost:27017/inputSchema', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const Input = mongoose.model('inputSchema', inputSchema);
