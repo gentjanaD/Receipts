@@ -1,7 +1,7 @@
 import React from 'react';
 // import { NavigationContainer } from '@react-navigation/native';
 import {View, Text, TouchableOpacity} from 'react-native';
-
+import PositiveForm from '../components/forms/PositiveForm';
 const Summary = ({navigation}) => {
   return (
     <View>
@@ -16,6 +16,7 @@ const Summary = ({navigation}) => {
       }}>
         <Text>REVISE</Text>
       </TouchableOpacity>
+      <PositiveForm/>
     </View>
   )
 }
