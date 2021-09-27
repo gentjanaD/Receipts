@@ -2,6 +2,7 @@ import React from 'react';
 // import { NavigationContainer } from '@react-navigation/native';
 import {View, Text, TouchableOpacity} from 'react-native';
 import PositiveForm from '../components/forms/PositiveForm';
+import SummaryComp from '../components/forms/SummaryComp';
 const Summary = ({navigation}) => {
   return (
     <View>
@@ -21,3 +22,6 @@ const Summary = ({navigation}) => {
   )
 }
 export default Summary; 
+
+
+//post all saved data from positive form to summary in a flatlist 

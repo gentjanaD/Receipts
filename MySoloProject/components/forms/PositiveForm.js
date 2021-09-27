@@ -1,7 +1,7 @@
 import React, {useState, useCallback,useEffect} from 'react';
 import {View, Text, TextInput, StyleSheet, Button, ScrollView,Alert, SectionList} from 'react-native'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-
+import SummaryComp from './SummaryComp';
 const PositiveForm = () => {
   // const [input, setInput]= useState('');
   const [category, setCategory] = useState({
@@ -22,7 +22,7 @@ const PositiveForm = () => {
 
   //post
   const fetchPostData = async (allInputs) => {
-    const loadingData = await fetch('http://localhost:3000/', {
+    const loadingData = await fetch('http://10.10.22.68:3000/', {
       // http://10.10.22.68:3000/
     method: 'POST',
     headers: {
@@ -40,15 +40,6 @@ const PositiveForm = () => {
   }
     // console.log(postNewData);
 
-
-  ///get
-  // const getAllData = () => {useEffect(()=>{
-  //   fetch('http://10.10.22.68:3000')
-  //   .then((res)=>res.json())
-  //   .then((data)=>{
-  //     setCategory(data)});
-  // },[])}
-
 console.log(category)
   return (
   <View style = {styles.container}>
@@ -60,7 +51,7 @@ console.log(category)
         value={category}
         onChangeText={((text)=> { setCategory({...category, category: text})})}
         keyboardType="default"
-        placeholder='Category'
+        placeholder='Choose category'
         placeholderTextColor={'#181818'}
       />
 

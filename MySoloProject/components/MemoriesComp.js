@@ -47,7 +47,7 @@ const fetchData = async () => {
   return (
   <View >
     {isLoading ? <Text>Loading...</Text> : 
-    ( <SafeAreaView >
+    ( <View >
       <Text style = {styles.page}>All My Memories:</Text>
        <SectionList
         sections= {data}
@@ -57,7 +57,7 @@ const fetchData = async () => {
         <Text style = {styles.categoryText} >Category: {section.category }</Text>
         )}
       />
-      </SafeAreaView>
+      </View>
     )}
   </View>
   );
