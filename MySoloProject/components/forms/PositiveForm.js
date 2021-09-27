@@ -17,7 +17,7 @@ const PositiveForm = () => {
     doDifferently: '',
     share: '',
     learned: '',
-    plan: ''
+    plan: '',
   });
 
   //post
@@ -32,7 +32,7 @@ const PositiveForm = () => {
     body: JSON.stringify(allInputs)
   })
     const json = await loadingData.json();
-    console.log(json);
+    // console.log(json);
     // return await loadingData.json();
     return json;
   }
@@ -40,7 +40,7 @@ const PositiveForm = () => {
     // event.preventDefault();
     await fetchPostData(category)
   }
-    console.log(postNewData);
+    // console.log(postNewData);
 
 // console.log(category)
   return (
@@ -166,6 +166,7 @@ const PositiveForm = () => {
         onPress = {postNewData}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
+        
       {/* <Text>Category is: {category.category}</Text> */}
       <Text>Title is: {category.title}</Text>
       <Text>Date is: {category.date}</Text>
