@@ -5,14 +5,14 @@ const inputSchema = new Schema({
   positive: {type: Boolean, required: true},
   category: {type : String, required: true},
   title: {type : String, required: true},
-  date: { type: Date, default: Date.now() },
+  date: { type: String, required: true},
   person: String,
   location: String,
   whatHappened: String,
   howDidYouFeel: String,
-  happenedBefore: Boolean,
+  happenedBefore: String,
   doDifferently: String,
-  share: Boolean,
+  share: String,
   learned: String,
   plan: String
 });

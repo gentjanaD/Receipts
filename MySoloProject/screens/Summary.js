@@ -17,7 +17,7 @@ const Summary = ({navigation}) => {
       }}>
         <Text>REVISE</Text>
       </TouchableOpacity>
-      <PositiveForm/>
+      
     </View>
   )
 }

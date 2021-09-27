@@ -13,7 +13,11 @@ exports.getFunc = async(req, res) => {
 exports.postFunc = async(req,res) => {
   try{
     const newIput = new Input(req.body);
-    const save = await newIput.save();
+    console.log(newIput)
+    const save = await newIput.save((error)=>{
+      if(error) console.log(error)
+    });
+    // console.log(save)
     res.status(201);
     res.json(save);
   } catch(e) {

@@ -15,15 +15,15 @@ const PositiveForm = () => {
     howDidYouFeel: '',
     happenedBefore: '',
     doDifferently: '',
-    share: false,
+    share: '',
     learned: '',
     plan: ''
   });
 
   //post
   const fetchPostData = async (allInputs) => {
-    const loadingData = await fetch('http://10.10.22.68:3000/', {
-      // http://10.10.22.68:3000/
+    // console.log(JSON.stringify(allInputs))
+    const loadingData = await fetch('http://10.10.22.68:3000', {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json',
@@ -31,16 +31,18 @@ const PositiveForm = () => {
     },
     body: JSON.stringify(allInputs)
   })
-
-    return await loadingData.json();
+    const json = await loadingData.json();
+    console.log(json);
+    // return await loadingData.json();
+    return json;
   }
   const postNewData = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     await fetchPostData(category)
   }
-    // console.log(postNewData);
+    console.log(postNewData);
 
-console.log(category)
+// console.log(category)
   return (
   <View style = {styles.container}>
      <ScrollView>
@@ -49,11 +51,12 @@ console.log(category)
       <TextInput
         style={styles.input}
         value={category}
-        onChangeText={((text)=> { setCategory({...category, category: text})})}
+        onChangeText={((text)=> setCategory({...category, category: text}))}
         keyboardType="default"
         placeholder='Choose category'
         placeholderTextColor={'#181818'}
       />
+      <Text style = {styles.text}>{category.category}</Text>
 
       <Text style={[styles.text, styles.buttonText]}>Title</Text>
        <TextInput
@@ -163,8 +166,22 @@ console.log(category)
         onPress = {postNewData}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
-  
+      {/* <Text>Category is: {category.category}</Text> */}
+      <Text>Title is: {category.title}</Text>
+      <Text>Date is: {category.date}</Text>
+      <Text>Person: {category.person}</Text>
+      <Text>Location is: {category.location}</Text>
+      <Text>What happened: {category.whatHappened}</Text>
+      <Text>How you felt: {category.howDidYouFeel}</Text>
+      <Text>Happened before: {category.happenedBefore}</Text>
+      <Text>Do differently: {category.doDifferently}</Text>
+      <Text>Share with someone: {category.share}</Text>
+      <Text>What you learned: {category.learned}</Text>
+      <Text>Plan moving forward is: {category.plan}</Text>
+
+
       </View>
+
       </ScrollView>
     </View>
   )
@@ -176,6 +193,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color:'black',
     fontWeight:'bold',
+    paddingBottom: 10
   },
   button:{
     height: 40,
