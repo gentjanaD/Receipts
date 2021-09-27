@@ -1,10 +1,10 @@
 import React from "react";
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import { useState, useEffect } from "react";
 const Item = (item ) => {
 return (
-   <View >
-    <Text>{item.title}</Text>
+   <View  >
+    <Text style = {[styles.inputText, styles.text]}>{item.title}</Text>
   </View>
   )
 };
@@ -24,146 +24,176 @@ const SummaryComp = () => {
 
   const renderCategory = ( {item} ) => {
     return (
-      <Item title={item.category} />
+      <View>
+
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.category}/>
+
+      </TouchableOpacity>
+      </View>
     )
   }
   const renderTitle = ( {item} ) => {
     return (
-      <Item title={item.title} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.title}/>
+
+      </TouchableOpacity>
     )
   }
   const renderDate = ( {item} ) => {
     return (
-      <Item title={item.date} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+
+        <Item title={item.date} />
+      </TouchableOpacity>
     )
   }
   const renderPerson = ( {item} ) => {
     return (
-      <Item title={item.person} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.person} />
+      </TouchableOpacity>
     )
   }
   const renderLocation = ( {item} ) => {
     return (
-      <Item title={item.location} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.location} />
+      </TouchableOpacity>
     )
   }
   const renderWhatHappened= ( {item} ) => {
     return (
-      <Item title={item.whatHappened} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.whatHappened} />
+      </TouchableOpacity>
     )
   }
   const renderHowYouFelt= ( {item} ) => {
     return (
-      <Item title={item.howDidYouFeel} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.howDidYouFeel} />
+      </TouchableOpacity>
     )
   }
   const renderHappenedBefore= ( {item} ) => {
     return (
-      <Item title={item.happenedBefore} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.happenedBefore} />
+      </TouchableOpacity>
     )
   }
   const renderDoDifferently= ( {item} ) => {
     return (
-      <Item title={item.doDifferently} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.doDifferently} />
+      </TouchableOpacity>
     )
   }
   const renderShare= ( {item} ) => {
     return (
-      <Item title={item.share} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.share}/>
+      </TouchableOpacity>
     )
   }
   const renderLearned= ( {item} ) => {
     return (
-      <Item title={item.learned} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.learned} />
+      </TouchableOpacity>
     )
   }
   const renderPlan= ( {item} ) => {
     return (
-      <Item title={item.plan} />
+      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+        <Item title={item.plan} />
+      </TouchableOpacity>
     )
   }
 
   return (
-    <View>
-      <Text style = {{fontSize: 40}}>Input Summary</Text>
+    <ScrollView>
+      <Text style = {[styles.mainHeading]} >Input Summary</Text>
 
-      <Text>CATEGORY</Text>
-      <FlatList
+      <Text style = {[styles.text, styles.mainText]} >Category:</Text>
+      <FlatList style = {styles.text}
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderCategory}
         keyExtractor={item => item._id}
         />
-      <Text>TITLE</Text>
+      <Text style = {[ styles.mainText]} >Title:</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderTitle}
         keyExtractor={item => item._id}
         />
-      <Text>DATE</Text>
+      <Text style = {[ styles.mainText]} >Date</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderDate}
         keyExtractor={item => item._id}
         />
-      <Text>PERSON</Text>
+      <Text style = {[styles.mainText]} >Person</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderPerson}
         keyExtractor={item => item._id}
         />
-      <Text>LOCATION</Text>
+      <Text style = {[styles.mainText]} >Location</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderLocation}
         keyExtractor={item => item._id}
         />
-      <Text>WHAT HAPPENED</Text>
+      <Text style = {[styles.mainText]} >What happened</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderWhatHappened}
         keyExtractor={item => item._id}
         />
-      <Text>HOW YOU FELT</Text>
+      <Text style = {[ styles.mainText]} >Hou you felt</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderHowYouFelt}
         keyExtractor={item => item._id}
         />
-      <Text>IF IT HAPPENED BEFORE</Text>
+      <Text style = {[styles.mainText]} >Has it happened before</Text>
 
-        <FlatList
+        <FlatList style = {styles.text}
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderHappenedBefore}
         keyExtractor={item => item._id}
         />
-      <Text>DO DIFFERENTLY</Text>
+      <Text style = {[styles.mainText]} >Do differently</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderDoDifferently}
         keyExtractor={item => item._id}
         />
-      <Text>IF YOU'D LIKE TO SHARE WITH SOMEONE</Text>
+      <Text style = {[styles.mainText]} >Would you like to share this with someone</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderShare}
         keyExtractor={item => item._id}
         />
-      <Text>WHAT YOU HAVE LEARNED</Text>
+      <Text style = {[styles.mainText]} >What did you learn</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
         renderItem={renderLearned}
         keyExtractor={item => item._id}
         />
-      <Text>THE PLAN MOVING FORWARD</Text>
+      <Text style = {[styles.mainText]} >What is the plan moving forward</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
@@ -171,8 +201,40 @@ const SummaryComp = () => {
         keyExtractor={item => item._id}
         />
 
-    </View>
+    </ScrollView>
   )
 }
+const styles = StyleSheet.create({
+  mainHeading: {
+    color: 'white',
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 100,
+    marginBottom: 20
+  },
+  renderBackground: {
+    borderWidth: 3,
+    padding: 10,
+    borderColor: '#ded8c9',
+    borderRadius: 10,
+    marginBottom: 20
+  },  
+  text: {
+    color: 'white'
+  },
+  inputText: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  mainText: {
+    fontSize: 18,
+    color: '#dbdddb',
+    marginBottom: 5,
+  }
+})
+
 
 export default SummaryComp;

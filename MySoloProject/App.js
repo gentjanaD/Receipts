@@ -25,7 +25,8 @@ const  App = () => {
         <RootStack.Screen name = "FormScreen" component = {FormScreen} 
         // options ={{headerShown: false}}
         />
-        <RootStack.Screen name = "Summary" component = {Summary} options={{headerShown: false}}/>
+        <RootStack.Screen name = "Summary" component = {Summary} />
+        {/* options={{headerShown: false}} */}
         <RootStack.Screen name = "EventOverview" component = {EventOverview} />
         <RootStack.Screen name = "Category" component = {Category} />
         <RootStack.Screen name = "Memories" component = {Memories} options ={{headerShown: false}}/>

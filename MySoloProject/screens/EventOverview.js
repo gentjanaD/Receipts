@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground, StyleSheet} from 'react-native';
 // import { NavigationContainer } from "@react-navigation/native";
 // import { createStackNavigator } from '@react-navigation/stack';
-
+import EventOverviewComp from '../components/EventOverviewComp';
 const EventOverview = ({navigation}) => {
   return (
-    <View>
+    <View style = {styles.container}>
+      <ImageBackground source = {require('../assets/form.png')} style= {styles.image}>
+        <View>
       <TouchableOpacity onPress = {()=>{
         navigation.navigate('Category')
       }}>
@@ -23,8 +25,21 @@ const EventOverview = ({navigation}) => {
       }}>
         <Text>New Event</Text>
       </TouchableOpacity>
-      
+      </View>
+      <EventOverviewComp/>
+      </ImageBackground>
     </View>
   );
 };
 export default EventOverview; 
+
+const styles = StyleSheet.create({
+   container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center'
+  }
+})

@@ -167,20 +167,6 @@ const PositiveForm = () => {
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         
-      {/* <Text>Category is: {category.category}</Text> */}
-      <Text>Title is: {category.title}</Text>
-      <Text>Date is: {category.date}</Text>
-      <Text>Person: {category.person}</Text>
-      <Text>Location is: {category.location}</Text>
-      <Text>What happened: {category.whatHappened}</Text>
-      <Text>How you felt: {category.howDidYouFeel}</Text>
-      <Text>Happened before: {category.happenedBefore}</Text>
-      <Text>Do differently: {category.doDifferently}</Text>
-      <Text>Share with someone: {category.share}</Text>
-      <Text>What you learned: {category.learned}</Text>
-      <Text>Plan moving forward is: {category.plan}</Text>
-
-
       </View>
 
       </ScrollView>
@@ -204,7 +190,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems:'center',
     marginLeft: 10,
-    marginBottom: 80
+    marginBottom: 130
   },
   buttonText: {
     color: 'white',

@@ -9,10 +9,10 @@ const Summary = ({navigation}) => {
       <ImageBackground source = {require('../assets/summary.png')} style= {styles.image}>
       <View style = {styles.subContainer}>
         <SummaryComp/>
-      <TouchableOpacity onPress = {() =>{
+      <TouchableOpacity style = {styles.button} onPress = {() =>{
         navigation.navigate('EventOverview')
       }} >
-      <Text style = {[styles.button, styles.input, styles.buttonText, {fontSize: 20}]}>See Event Overview</Text>
+      <Text style = {styles.buttonText}>See Event Overview</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={()=>{
@@ -30,22 +30,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonText: {
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
-    marginLeft: 10
+    marginLeft: 1
   },
 button:{
     height: 40,
-    width: 370,
-    backgroundColor: '#463D7B',
-    // borderRadius: 5,
+    width: 170,
+    backgroundColor: '#594F90',
+    borderRadius: 8,
     justifyContent: 'center',
     alignItems:'center',
-    marginLeft: 10,
-    marginBottom: 100
+    // marginLeft: ,
+    // marginBottom: 2,
+    opacity: 0.9,
   },
   input: {
+    // color: 'white',
     borderColor:'#707070',
     height: 40,
     margin: 12,
@@ -60,8 +62,8 @@ button:{
   subContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 100,
-    marginBottom: 90
+    marginTop: 25,
+    marginBottom: 70
   },
   image: {
     flex: 1,

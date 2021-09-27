@@ -9,17 +9,17 @@ const FormScreen = ({navigation}) => {
     <View style={styles.container}>
        <ImageBackground source = {require('../assets/form.png')} style={styles.image}> 
         <View>
-          <TouchableOpacity onPress = {()=>{
+          <TouchableOpacity style = {{marginTop: 20, marginLeft: 280, backgroundColor: 'white', justifyContent: 'right', marginHorizontal: 23, paddingTop: 6, paddingBottom: 6, paddingLeft: 20, paddingRight: 5, borderRadius: 5}} onPress = {()=>{
             navigation.navigate('Summary') //if submitting
             //otherwise navigate back to home if press cancel
           }}>
-            <Text>SUBMIT FORM </Text>
+            <Text>SUMMARY</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{
+          <TouchableOpacity style = {{marginTop: 20, marginLeft: 280, backgroundColor: 'white', justifyContent: 'right', marginHorizontal: 23, paddingTop: 6, paddingBottom: 6, paddingLeft: 24, paddingRight: 5, borderRadius: 5}}  onPress={()=>{
             navigation.navigate('Home')
           }}>
-            <Text>CANCEL</Text>
+            <Text>GO BACK</Text>
           </TouchableOpacity>
           
         </View>
