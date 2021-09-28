@@ -48,7 +48,7 @@ const PositiveForm = () => {
     <View style = {styles.container}>
       <KeyboardAvoidingView keyboardVerticalOffset = {Header.HEIGHT + 120} style = {styles.keyBoard} behavior="padding">
      <ScrollView style = {{flex: 1}}>
-       {/* <TouchableWithoutFeedback onPress = {Keyboard.dismiss}> */}
+       <Text style = {styles.mainHeading}>Positive Event</Text>
     <View>
       <Text style={[styles.text, styles.buttonText]}>Category</Text>
       <TextInput
@@ -186,6 +186,14 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     paddingBottom: 10
   },
+   mainHeading: {
+    color: 'white',
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 100,
+    marginBottom: 20
+  },
   button:{
     height: 40,
     width: 370,
@@ -210,7 +218,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     backgroundColor: '#E6E4E4',
     opacity:0.4,
-    marginBottom: 12,
+    // marginBottom: 12,
   },
   container: {
     flex: 1

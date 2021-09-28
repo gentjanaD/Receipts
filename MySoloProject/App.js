@@ -32,9 +32,9 @@ const  App = () => {
         />
         <RootStack.Screen name = "Summary" component = {Summary} />
         {/* options={{headerShown: false}} */}
-        <RootStack.Screen name = "EventOverview" component = {EventOverview} />
-        <RootStack.Screen name = "Category" component = {Category} />
-        <RootStack.Screen name = "Memories" component = {Memories} options ={{headerShown: false}}/>
+        <RootStack.Screen name = "EventOverview" component = {EventOverview} options ={{headerShown: false}}/>
+        {/* <RootStack.Screen name = "Category" component = {Category} /> */}
+        {/* <RootStack.Screen name = "Memories" component = {Memories} options ={{headerShown: false}}/> */}
         <RootStack.Screen name = "People" component = {People} />
         <RootStack.Screen name = "Locations" component = {Locations} />
         <RootStack.Screen name = "Lessons" component = {Lessons} />

@@ -4,9 +4,9 @@ import {useState, useEffect, StatusBar} from 'react';
 import { Directions } from "react-native-gesture-handler";
 
 const Item = ({ positive,title, date, person }) => (
-  <View style = {positive? {backgroundColor: '#ffb38a', marginBottom: 30, marginTop: 10, opacity:0.5, paddingTop:9,paddingBottom:9, alignItems:'center'} : {backgroundColor: '#52307c', marginBottom: 10, marginTop: 10, opacity:0.7, paddingTop:9,paddingBottom:9, alignItems:'center'}}>
+  <View style = {positive? {backgroundColor: '#ffd7b5', marginBottom: 40, marginTop: 10, opacity:0.7, paddingTop:9,paddingBottom:9, alignItems:'center'} : {backgroundColor: '#3b2747', marginBottom: 40, marginTop: 10, opacity:0.8, paddingTop:9,paddingBottom:9, alignItems:'center'}}>
 
-    <Text style = { positive?{color: 'black', paddingLeft: 10, fontSize:19, fontWeight:'bold'}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  {positive?'Positive Experience [+]':'Negative Experience [-]' }</Text>
+    <Text style = { positive?{color: 'black', paddingLeft: 10, fontSize:19, fontWeight:'bold'}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  {positive?'Positive Experience  🔼':'Negative Experience  🔽' }</Text>
     <Text style = { positive?{color: 'black', fontWeight:'bold',paddingLeft: 10, fontSize:19}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  Title: {title} </Text>
 
     <Text style = { positive?{color: 'black', paddingLeft: 10, fontSize:19, fontWeight:'bold'}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  Date: {date} </Text>
@@ -43,12 +43,12 @@ const EventOverviewComp = () => {
   // const renderItem = ({item}) => (
   //   <Item person = {item.title}/>
   // );
-  console.log('data', data)
+  // console.log('data', data)
   return (
-    <View>
+    <View style = {{height: 750}}>
       {isLoading ? <Text>Loading...</Text>: 
       ( <ScrollView style = {styles.buttonStyleContainer}>
-        <Text> ALL EVENTS </Text>
+        <Text style = {{fontSize: 30, color: 'white',marginLeft: 113, marginBottom: 10}}> All Memories </Text>
         <SafeAreaView>
           <SectionList
             sections={data}

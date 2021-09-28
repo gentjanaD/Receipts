@@ -7,20 +7,23 @@ const Summary = ({navigation}) => {
   return (
     <View style = {styles.container }>
       <ImageBackground source = {require('../assets/summary.png')} style= {styles.image}>
-      <View style = {styles.subContainer}>
-        <SummaryComp/>
+      {/* <View style = {styles.subContainer}> */}
+        <View style = {styles.buttonStyleContainer}>
       <TouchableOpacity style = {styles.button} onPress = {() =>{
-        navigation.navigate('EventOverview')
+        navigation.navigate('Home')
       }} >
-      <Text style = {styles.buttonText}>See Event Overview</Text>
+      <Text style = {styles.buttonText}> + New Event</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={()=>{
-        navigation.navigate('FormScreen');
+      <TouchableOpacity style = {styles.buttonLeft} onPress={()=>{
+        navigation.navigate('EventOverview');
       }}>
-        {/* <Text>REVISE</Text> */}
+      <Text style = {styles.buttonText}>See All Events</Text>
+
       </TouchableOpacity>
-      </View>
+        </View>
+      {/* </View> */}
+        <SummaryComp/>
       </ImageBackground>
     </View>
   )
@@ -37,13 +40,29 @@ const styles = StyleSheet.create({
   },
 button:{
     height: 40,
-    width: 170,
-    backgroundColor: '#594F90',
+    width: 130,
+    backgroundColor: '#301934',
+    borderColor: '#e3d5e3',
+    borderWidth: 0.8,
     borderRadius: 8,
     justifyContent: 'center',
     alignItems:'center',
-    // marginLeft: ,
+    marginLeft: 3,
     // marginBottom: 2,
+    opacity: 0.9,
+  },
+
+  buttonLeft:{
+    height: 40,
+    width: 130,
+    backgroundColor: '#301934',
+    borderColor: '#e3d5e3',
+    borderWidth: 0.8,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems:'center',
+    marginLeft: 122,
+    marginBottom: 10,
     opacity: 0.9,
   },
   input: {
@@ -56,21 +75,28 @@ button:{
     borderRadius: 10,
     backgroundColor: '#E6E4E4',
     opacity:0.4,
-    marginBottom: 12,
+    marginBottom: 22,
     marginLeft: 10
   },
   subContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 25,
-    marginBottom: 70
+    marginTop: 20,
+    marginBottom: 5
   },
   image: {
     flex: 1,
     resizeMode: 'cover',
     // justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  buttonStyleContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    marginTop: 15,
+    marginBottom: 50
+  },
 })
 
 export default Summary; 

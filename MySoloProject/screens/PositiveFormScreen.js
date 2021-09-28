@@ -4,23 +4,23 @@ import PositiveForm from '../components/forms/PositiveForm';
 // import { NavigationContainer } from "@react-navigation/native";
 
 
-const FormScreen = ({navigation}) => {
+const PositiveFormScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
        <ImageBackground source = {require('../assets/form.png')} style={styles.image}> 
-       {/* <KeyboardAvoidingView style = {{flex:1 }} behavior = "padding"> */}
-        <View>
-          <TouchableOpacity style = {{marginTop: 20, marginLeft: 280, backgroundColor: 'white', justifyContent: 'right', marginHorizontal: 23, paddingTop: 6, paddingBottom: 6, paddingLeft: 20, paddingRight: 5, borderRadius: 5}} onPress = {()=>{
-            navigation.navigate('Summary') //if submitting
+        <View style = {styles.buttonStyleContainer}>
+          <TouchableOpacity style = {styles.buttonRight} onPress = {()=>{
+            navigation.navigate('Home') //if submitting
             //otherwise navigate back to home if press cancel
           }}>
-            <Text>Positive SUMMARY</Text>
+            
+            <Text style = {styles.buttonText}>Go Back</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style = {{marginTop: 20, marginLeft: 280, backgroundColor: 'white', justifyContent: 'right', marginHorizontal: 23, paddingTop: 6, paddingBottom: 6, paddingLeft: 24, paddingRight: 5, borderRadius: 5}}  onPress={()=>{
-            navigation.navigate('Home')
+          <TouchableOpacity style = {styles.buttonLeft}  onPress={()=>{
+            navigation.navigate('Summary')
           }}>
-            <Text>GO BACK</Text>
+            <Text style = {styles.buttonText}>Summary</Text>
           </TouchableOpacity>
           
         </View>
@@ -38,7 +38,50 @@ const styles = StyleSheet.create({
   image: {
     flex:1,
     resizeMode: 'cover',
+    alignItems: 'center',
     // justifyContent:'center'
   },
+   buttonStyleContainer: {
+    // flex: 1,
+    flexDirection: 'row',
+    marginHorizontal: 10,
+    marginTop: 15,
+    marginBottom: 20
+  },
+  buttonRight: {
+  height: 40,
+    width: 120,
+    backgroundColor: '#301934',
+    borderColor: '#e3d5e3',
+    borderWidth: 0.8,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems:'center',
+    marginLeft: 23,
+    // marginBottom: 2,
+    opacity: 0.9,
+},
+buttonLeft: {
+  height: 40,
+    width: 110,
+    backgroundColor: '#301934',
+    borderColor: '#e3d5e3',
+    borderWidth: 0.8,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems:'center',
+    marginLeft: 122,
+    marginBottom: 10,
+    opacity: 0.9,
+    marginRight: 20,
+},
+buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginLeft: 1
+  },
+  
+
 })
-export default FormScreen; 
+export default PositiveFormScreen; 

@@ -1,5 +1,6 @@
 import React, {useState, useCallback,useEffect} from 'react';
-import {View, Text, TextInput, StyleSheet, Button, ScrollView,Alert, SectionList} from 'react-native'
+import {View, Text, TextInput, StyleSheet, Button, ScrollView,Alert, SectionList, KeyboardAvoidingView} from 'react-native';
+import { Header } from 'react-navigation-stack';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import SummaryComp from './SummaryComp';
 const NegativeForm = () => {
@@ -45,7 +46,9 @@ const NegativeForm = () => {
 // console.log(category)
   return (
   <View style = {styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset = {Header.HEIGHT + 120} style = {styles.keyBoard} behavior="padding">
      <ScrollView>
+        <Text style = {styles.mainHeading}>Negative Event</Text>
     <View>
       <Text style={[styles.text, styles.buttonText]}>Category</Text>
       <TextInput
@@ -170,10 +173,11 @@ const NegativeForm = () => {
       </View>
 
       </ScrollView>
+    </KeyboardAvoidingView>
+
     </View>
   )
 }
-export default NegativeForm;
 
 const styles = StyleSheet.create({
   text: {
@@ -182,6 +186,14 @@ const styles = StyleSheet.create({
     color:'black',
     fontWeight:'bold',
     paddingBottom: 10
+  },
+  mainHeading: {
+    color: 'white',
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 100,
+    marginBottom: 20
   },
   button:{
     height: 40,
@@ -213,3 +225,4 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+export default NegativeForm;

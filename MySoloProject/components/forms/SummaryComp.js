@@ -3,7 +3,7 @@ import {View, Text, FlatList, StyleSheet, ScrollView, TouchableOpacity} from 're
 import { useState, useEffect } from "react";
 const Item = (item ) => {
 return (
-   <View  >
+   <View >
     <Text style = {[styles.inputText, styles.text]}>{item.title}</Text>
   </View>
   )
@@ -24,7 +24,7 @@ const SummaryComp = () => {
 
   const renderCategory = ( {item} ) => {
     return (
-      <View>
+      <View >
 
       <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
         <Item title={item.category}/>
@@ -114,7 +114,8 @@ const SummaryComp = () => {
   }
 
   return (
-    <ScrollView>
+    <View style = {{height: 750}} >
+    <ScrollView style = {{overflow: 'hidden'}}>
       <Text style = {[styles.mainHeading]} >Input Summary</Text>
 
       <Text style = {[styles.text, styles.mainText]} >Category:</Text>
@@ -158,7 +159,7 @@ const SummaryComp = () => {
         renderItem={renderWhatHappened}
         keyExtractor={item => item._id}
         />
-      <Text style = {[ styles.mainText]} >Hou you felt</Text>
+      <Text style = {[ styles.mainText]} >How you felt</Text>
 
         <FlatList
         data={data[data.length-1]? [data[data.length-1]] : []}
@@ -202,6 +203,7 @@ const SummaryComp = () => {
         />
 
     </ScrollView>
+    </View>
   )
 }
 const styles = StyleSheet.create({
@@ -218,16 +220,16 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: '#ded8c9',
     borderRadius: 10,
-    marginBottom: 20
+    marginBottom: 25,
   },  
   text: {
-    color: 'white'
+    color: 'white',
   },
   inputText: {
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   mainText: {
     fontSize: 18,

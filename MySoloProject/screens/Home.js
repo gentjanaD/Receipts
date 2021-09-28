@@ -8,9 +8,8 @@ const Home = ({navigation}) => {
     <ImageBackground source = {require('../assets/home.png')} style={styles.image}> 
 
     <View style = {styles.subContainer}>
-      <Text style = {styles.Text}>WELCOME</Text>
-
-      <Text style = {styles.Text}>How do you feel today?</Text>
+      <Text style = {styles.Text}>Receipts</Text>
+      <Text style = {styles.subText}>How do you feel today?</Text>
       <View style = {styles.buttonStyleContainer}>
       <TouchableOpacity style = {styles.button} onPress={()=>{navigation.navigate('PositiveFormScreen')}}>
         <Text style = {[styles.buttonText]}>Up</Text>
@@ -21,9 +20,9 @@ const Home = ({navigation}) => {
       </TouchableOpacity>
     </View>
       <TouchableOpacity style = {styles.memories} onPress={()=>{
-        navigation.navigate('Memories')
+        navigation.navigate('EventOverview')
       }}>
-        <Text style = {styles.memories}>All Memories</Text>
+        <Text style = {styles.memories}>Your Memories</Text>
       </TouchableOpacity>
     </View>
       </ImageBackground>
@@ -40,13 +39,14 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     marginHorizontal: 20,
-    marginTop: 5,
+    // marginTop: 5,
     marginBottom: 20
   },
   memories: {
-    marginTop: 200,
+    marginTop: 140,
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#F9986A'
   },
   button:{
     height: 60,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems:'center',
-    marginTop: 190,
+    marginTop: 90,
     marginLeft: 50,
     marginRight: 50,
     marginBottom: 10
@@ -70,12 +70,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   Text:{
-    color: 'black',
-    fontSize: 30,
+    color: '#F6D0CC',
+    fontSize: 50,
     // alignItems: 'center',
     // justifyContent: 'center',
     fontWeight: 'bold',
-    marginBottom: 20
+    marginBottom: 10,
+    marginTop: 70,
+  },
+  subText: {
+    color: '#F9986A',
+    fontSize: 26,
+    marginTop: 90
   },
   image: {
     flex: 1,
