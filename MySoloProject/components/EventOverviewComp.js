@@ -3,11 +3,15 @@ import {View, Text, SectionList, StyleSheet, ScrollView, SafeAreaView} from 'rea
 import {useState, useEffect, StatusBar} from 'react';
 import { Directions } from "react-native-gesture-handler";
 
-const Item = ({ title, date, person }) => (
-  <View style = {[styles.item, styles.row]}>
-    <Text style = {[styles.title, styles.text, styles.column]}>Title: {title}</Text>
-    <Text style = {styles.text}>When {date} </Text>
-    <Text style = {styles.text}>Who {person}</Text>
+const Item = ({ positive,title, date, person }) => (
+  <View style = {positive? {backgroundColor: '#ffb38a', marginBottom: 30, marginTop: 10, opacity:0.5, paddingTop:9,paddingBottom:9, alignItems:'center'} : {backgroundColor: '#52307c', marginBottom: 10, marginTop: 10, opacity:0.7, paddingTop:9,paddingBottom:9, alignItems:'center'}}>
+
+    <Text style = { positive?{color: 'black', paddingLeft: 10, fontSize:19, fontWeight:'bold'}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  {positive?'Positive Experience [+]':'Negative Experience [-]' }</Text>
+    <Text style = { positive?{color: 'black', fontWeight:'bold',paddingLeft: 10, fontSize:19}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  Title: {title} </Text>
+
+    <Text style = { positive?{color: 'black', paddingLeft: 10, fontSize:19, fontWeight:'bold'}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  Date: {date} </Text>
+
+    <Text style = { positive?{color: 'black', paddingLeft: 10, fontSize:19, fontWeight:'bold'}: {color: 'white', paddingLeft: 10, fontSize:19,fontWeight:'bold'}}>  Person: {person}</Text>
   </View>
 );
 
@@ -36,10 +40,10 @@ const EventOverviewComp = () => {
     fetchData();
   }, []);
 
-  const renderItem = ({item}) => (
-    <Item person = {item.title}/>
-  );
-  
+  // const renderItem = ({item}) => (
+  //   <Item person = {item.title}/>
+  // );
+  console.log('data', data)
   return (
     <View>
       {isLoading ? <Text>Loading...</Text>: 
@@ -49,9 +53,9 @@ const EventOverviewComp = () => {
           <SectionList
             sections={data}
             keyExtractor={item => item._id}
-            renderItem= {({item})=> <Item date = {item.date} title={item.title} person = {item.person} /> }
+            renderItem= {({item})=> <Item date = {item.date} title={item.title} person = {item.person} positive = {item.positive} /> }
             renderSectionHeader= {({section})=> (
-              <Text style = {[styles.header]}>{section.category}</Text>
+              <Text style = {styles.header}>{section.category}</Text>
             )}
           />
     </SafeAreaView>
@@ -82,7 +86,9 @@ const styles = StyleSheet.create({
       fontSize: 32,
       backgroundColor: "#fff",
       opacity: 0.3,
-      paddingLeft: 18
+      paddingLeft: 18,
+      marginTop: 10,
+      alignItems:'center'
     },
     title: {
       fontSize: 24

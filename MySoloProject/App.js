@@ -5,7 +5,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from './screens/Home';
-import FormScreen from './screens/FormScreen';
+import PositiveFormScreen from './screens/PositiveFormScreen';
+import NegativeFormScreen from './screens/NegativeFormScreen';
+
 import Summary from './screens/Summary';
 import EventOverview from './screens/EventOverview';
 import Category from './screens/Category';
@@ -22,7 +24,10 @@ const  App = () => {
     <NavigationContainer>
       <RootStack.Navigator>
         <RootStack.Screen name = "Home" component = {Home} options ={{headerShown: false}}/>
-        <RootStack.Screen name = "FormScreen" component = {FormScreen} 
+        <RootStack.Screen name = "PositiveFormScreen" component = {PositiveFormScreen} 
+        // options ={{headerShown: false}}
+        />
+        <RootStack.Screen name = "NegativeFormScreen" component = {NegativeFormScreen} 
         // options ={{headerShown: false}}
         />
         <RootStack.Screen name = "Summary" component = {Summary} />

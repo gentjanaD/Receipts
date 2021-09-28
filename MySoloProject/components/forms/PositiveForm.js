@@ -1,11 +1,12 @@
 import React, {useState, useCallback,useEffect} from 'react';
-import {View, Text, TextInput, StyleSheet, Button, ScrollView,Alert, SectionList} from 'react-native'
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import {View, Text, TextInput, StyleSheet, ScrollView, KeyboardAvoidingView} from 'react-native';
+import { Header } from 'react-navigation-stack';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import SummaryComp from './SummaryComp';
 const PositiveForm = () => {
   // const [input, setInput]= useState('');
   const [category, setCategory] = useState({
-    positive: false,
+    positive: true,
     category: '',
     title: '',
     date: '',
@@ -44,8 +45,10 @@ const PositiveForm = () => {
 
 // console.log(category)
   return (
-  <View style = {styles.container}>
-     <ScrollView>
+    <View style = {styles.container}>
+      <KeyboardAvoidingView keyboardVerticalOffset = {Header.HEIGHT + 120} style = {styles.keyBoard} behavior="padding">
+     <ScrollView style = {{flex: 1}}>
+       {/* <TouchableWithoutFeedback onPress = {Keyboard.dismiss}> */}
     <View>
       <Text style={[styles.text, styles.buttonText]}>Category</Text>
       <TextInput
@@ -74,7 +77,7 @@ const PositiveForm = () => {
         value={category}
         keyboardType="default"
         onChangeText={(text)=> {setCategory({...category, date: text})}}
-        placeholder={'Date'}
+        placeholder={'Date: Month/Day/Year - Time'}
         placeholderTextColor={'#181818'}
 
         />
@@ -168,8 +171,9 @@ const PositiveForm = () => {
         </TouchableOpacity>
         
       </View>
-
+      {/* </TouchableWithoutFeedback> */}
       </ScrollView>
+    </KeyboardAvoidingView>
     </View>
   )
 }
@@ -209,7 +213,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   container: {
-    padding: 10,
+    flex: 1
   },
+  keyBoard: {
+    flex:1
+  }
 });
 export default PositiveForm; 

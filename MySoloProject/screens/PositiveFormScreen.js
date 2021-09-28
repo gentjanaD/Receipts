@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, ImageBackground, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import PositiveForm from '../components/forms/PositiveForm';
 // import { NavigationContainer } from "@react-navigation/native";
 
@@ -8,12 +8,13 @@ const FormScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
        <ImageBackground source = {require('../assets/form.png')} style={styles.image}> 
+       {/* <KeyboardAvoidingView style = {{flex:1 }} behavior = "padding"> */}
         <View>
           <TouchableOpacity style = {{marginTop: 20, marginLeft: 280, backgroundColor: 'white', justifyContent: 'right', marginHorizontal: 23, paddingTop: 6, paddingBottom: 6, paddingLeft: 20, paddingRight: 5, borderRadius: 5}} onPress = {()=>{
             navigation.navigate('Summary') //if submitting
             //otherwise navigate back to home if press cancel
           }}>
-            <Text>SUMMARY</Text>
+            <Text>Positive SUMMARY</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style = {{marginTop: 20, marginLeft: 280, backgroundColor: 'white', justifyContent: 'right', marginHorizontal: 23, paddingTop: 6, paddingBottom: 6, paddingLeft: 24, paddingRight: 5, borderRadius: 5}}  onPress={()=>{
@@ -24,6 +25,7 @@ const FormScreen = ({navigation}) => {
           
         </View>
             <PositiveForm/>
+            {/* </KeyboardAvoidingView> */}
        </ImageBackground>
     </View>
   )

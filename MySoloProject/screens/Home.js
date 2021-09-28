@@ -12,11 +12,11 @@ const Home = ({navigation}) => {
 
       <Text style = {styles.Text}>How do you feel today?</Text>
       <View style = {styles.buttonStyleContainer}>
-      <TouchableOpacity style = {styles.button} onPress={()=>{navigation.navigate('FormScreen')}}>
+      <TouchableOpacity style = {styles.button} onPress={()=>{navigation.navigate('PositiveFormScreen')}}>
         <Text style = {[styles.buttonText]}>Up</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style = {styles.button} onPress={()=>{navigation.navigate('FormScreen')}}>
+      <TouchableOpacity style = {styles.button} onPress={()=>{navigation.navigate('NegativeFormScreen')}}>
         <Text style = {styles.buttonText}>Down</Text>
       </TouchableOpacity>
     </View>
