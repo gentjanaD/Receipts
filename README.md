@@ -10,7 +10,7 @@
 
 Ensure you have 
 
-1. Clone this repo
+1. Cloned this repo
 ```
 git clone https://github.com/gentjanaD/Receipts
 ```
