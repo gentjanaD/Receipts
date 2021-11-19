@@ -1,242 +1,248 @@
 import React from "react";
-import {View, Text, FlatList, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { useState, useEffect } from "react";
-const Item = (item ) => {
-return (
-   <View >
-    <Text style = {[styles.inputText, styles.text]}>{item.title}</Text>
-  </View>
-  )
+const Item = (item) => {
+  return (
+    <View>
+      <Text style={[styles.inputText, styles.text]}>{item.title}</Text>
+    </View>
+  );
 };
 
 const SummaryComp = () => {
   const [data, setData] = useState([]);
   const fetchSumData = async () => {
-    const res = await fetch('http://10.10.22.68:3000');
+    const res = await fetch("http://10.10.22.68:3000");
     const datas = await res.json();
     setData(datas);
-  }
-  
-  useEffect(()=>{
+  };
+
+  useEffect(() => {
     fetchSumData();
-  },[]);
+  }, []);
   // console.log('data', data)
 
-  const renderCategory = ( {item} ) => {
+  const renderCategory = ({ item }) => {
     return (
-      <View >
-
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
-        <Item title={item.category}/>
-
-      </TouchableOpacity>
+      <View>
+        <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
+          <Item title={item.category} />
+        </TouchableOpacity>
       </View>
-    )
-  }
-  const renderTitle = ( {item} ) => {
+    );
+  };
+  const renderTitle = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
-        <Item title={item.title}/>
-
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
+        <Item title={item.title} />
       </TouchableOpacity>
-    )
-  }
-  const renderDate = ( {item} ) => {
+    );
+  };
+  const renderDate = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
-
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.date} />
       </TouchableOpacity>
-    )
-  }
-  const renderPerson = ( {item} ) => {
+    );
+  };
+  const renderPerson = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.person} />
       </TouchableOpacity>
-    )
-  }
-  const renderLocation = ( {item} ) => {
+    );
+  };
+  const renderLocation = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.location} />
       </TouchableOpacity>
-    )
-  }
-  const renderWhatHappened= ( {item} ) => {
+    );
+  };
+  const renderWhatHappened = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.whatHappened} />
       </TouchableOpacity>
-    )
-  }
-  const renderHowYouFelt= ( {item} ) => {
+    );
+  };
+  const renderHowYouFelt = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.howDidYouFeel} />
       </TouchableOpacity>
-    )
-  }
-  const renderHappenedBefore= ( {item} ) => {
+    );
+  };
+  const renderHappenedBefore = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.happenedBefore} />
       </TouchableOpacity>
-    )
-  }
-  const renderDoDifferently= ( {item} ) => {
+    );
+  };
+  const renderDoDifferently = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.doDifferently} />
       </TouchableOpacity>
-    )
-  }
-  const renderShare= ( {item} ) => {
+    );
+  };
+  const renderShare = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
-        <Item title={item.share}/>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
+        <Item title={item.share} />
       </TouchableOpacity>
-    )
-  }
-  const renderLearned= ( {item} ) => {
+    );
+  };
+  const renderLearned = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.learned} />
       </TouchableOpacity>
-    )
-  }
-  const renderPlan= ( {item} ) => {
+    );
+  };
+  const renderPlan = ({ item }) => {
     return (
-      <TouchableOpacity style = {[styles.renderBackground, styles.inputText]}>
+      <TouchableOpacity style={[styles.renderBackground, styles.inputText]}>
         <Item title={item.plan} />
       </TouchableOpacity>
-    )
-  }
+    );
+  };
 
   return (
-    <View style = {{height: 750}} >
-    <ScrollView style = {{overflow: 'hidden'}}>
-      <Text style = {[styles.mainHeading]} >Input Summary</Text>
+    <View style={{ height: 750 }}>
+      {/* <ScrollView style = {{overflow: 'hidden'}}> */}
+      <Text style={[styles.mainHeading]}>Input Summary</Text>
 
-      <Text style = {[styles.text, styles.mainText]} >Category:</Text>
-      <FlatList style = {styles.text}
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <Text style={[styles.text, styles.mainText]}>Category:</Text>
+      <FlatList
+        style={styles.text}
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderCategory}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[ styles.mainText]} >Title:</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>Title:</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderTitle}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[ styles.mainText]} >Date</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>Date</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderDate}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >Person</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>Person</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderPerson}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >Location</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>Location</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderLocation}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >What happened</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>What happened</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderWhatHappened}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[ styles.mainText]} >How you felt</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>How you felt</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderHowYouFelt}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >Has it happened before</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>Has it happened before</Text>
 
-        <FlatList style = {styles.text}
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        style={styles.text}
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderHappenedBefore}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >Do differently</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>Do differently</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderDoDifferently}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >Would you like to share this with someone</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>
+        Would you like to share this with someone
+      </Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderShare}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >What did you learn</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>What did you learn</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderLearned}
-        keyExtractor={item => item._id}
-        />
-      <Text style = {[styles.mainText]} >What is the plan moving forward</Text>
+        keyExtractor={(item) => item._id}
+      />
+      <Text style={[styles.mainText]}>What is the plan moving forward</Text>
 
-        <FlatList
-        data={data[data.length-1]? [data[data.length-1]] : []}
+      <FlatList
+        data={data[data.length - 1] ? [data[data.length - 1]] : []}
         renderItem={renderPlan}
-        keyExtractor={item => item._id}
-        />
+        keyExtractor={(item) => item._id}
+      />
 
-    </ScrollView>
+      {/* </ScrollView> */}
     </View>
-  )
-}
+  );
+};
 const styles = StyleSheet.create({
   mainHeading: {
-    color: 'white',
+    color: "white",
     fontSize: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginLeft: 100,
-    marginBottom: 20
+    marginBottom: 20,
   },
   renderBackground: {
     borderWidth: 3,
     padding: 10,
-    borderColor: '#ded8c9',
+    borderColor: "#ded8c9",
     borderRadius: 10,
     marginBottom: 25,
-  },  
+  },
   text: {
-    color: 'white',
+    color: "white",
   },
   inputText: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   mainText: {
     fontSize: 18,
-    color: '#dbdddb',
+    color: "#dbdddb",
     marginBottom: 5,
-  }
-})
-
+  },
+});
 
 export default SummaryComp;
