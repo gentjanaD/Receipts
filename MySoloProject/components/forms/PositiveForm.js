@@ -11,7 +11,6 @@ import { Header } from "react-navigation-stack";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import SummaryComp from "./SummaryComp";
 const PositiveForm = () => {
-  // const [input, setInput]= useState('');
   const [category, setCategory] = useState({
     positive: true,
     category: "",
@@ -31,7 +30,7 @@ const PositiveForm = () => {
   //post
   const fetchPostData = async (allInputs) => {
     // console.log(JSON.stringify(allInputs))
-    const loadingData = await fetch("http://10.10.22.68:3000", {
+    const loadingData = await fetch("http://192.168.0.41:3000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +63,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Category</Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              // value={String(category)}
               onChangeText={(text) =>
                 setCategory({ ...category, category: text })
               }
@@ -77,7 +76,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Title</Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              // value={String(category)}
               onChangeText={(text) => {
                 setCategory({ ...category, title: text });
               }}
@@ -89,7 +88,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Date</Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              // value={String(category)}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, date: text });

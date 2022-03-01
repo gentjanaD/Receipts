@@ -4,7 +4,6 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
 } from "react-native";
 import { useState, useEffect } from "react";
@@ -19,7 +18,7 @@ const Item = (item) => {
 const SummaryComp = () => {
   const [data, setData] = useState([]);
   const fetchSumData = async () => {
-    const res = await fetch("http://10.10.22.68:3000");
+    const res = await fetch("http://192.168.0.41:3000");
     const datas = await res.json();
     setData(datas);
   };

@@ -33,8 +33,7 @@ const NegativeForm = () => {
 
   //post
   const fetchPostData = async (allInputs) => {
-    // console.log(JSON.stringify(allInputs))
-    const loadingData = await fetch("http://10.10.22.68:3000", {
+    const loadingData = await fetch("http://192.168.0.41:3000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,24 +42,15 @@ const NegativeForm = () => {
       body: JSON.stringify(allInputs),
     });
     const json = await loadingData.json();
-    // console.log(json);
-    // return await loadingData.json();
     return json;
   };
   const postNewData = async (event) => {
     // event.preventDefault();
     await fetchPostData(category);
   };
-  // console.log(postNewData);
-
-  // console.log(category)
   return (
     <View style={styles.container}>
-      <KeyboardAvoidingView
-        // keyboardVerticalOffset={HEIGHT + 120}
-        style={styles.keyBoard}
-        behavior="padding"
-      >
+      <KeyboardAvoidingView style={styles.keyBoard} behavior="padding">
         <ScrollView>
           <Text style={styles.mainHeading}>Negative Event</Text>
           <View>

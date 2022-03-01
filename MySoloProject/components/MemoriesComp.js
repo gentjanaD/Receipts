@@ -19,7 +19,7 @@ export default MemoriesComp = () => {
   const [categories, setCategories] = useState([]);
 
   const fetchData = async () => {
-    const resp = await fetch("http://192.168.100.125:19000/");
+    const resp = await fetch("http://192.168.100.125:19000");
     // exp://192.168.100.125:19000
     const data = await resp.json();
     const categoryNames = data.map((el) => {
