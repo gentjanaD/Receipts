@@ -6,7 +6,7 @@ import {
   ImageBackground,
   StyleSheet,
 } from "react-native";
-import EventOverviewComp from "../components/EventOverviewComp";
+import EventOverviewComp from "../components/eventOverview/EventOverviewComp";
 const EventOverview = ({ navigation }) => {
   return (
     <View style={styles.container}>

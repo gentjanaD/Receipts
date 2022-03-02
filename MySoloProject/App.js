@@ -39,9 +39,9 @@ const App = () => {
           component={EventOverview}
           options={{ headerShown: false }}
         />
-        <RootStack.Screen name="People" component={People} />
+        {/* <RootStack.Screen name="People" component={People} />
         <RootStack.Screen name="Locations" component={Locations} />
-        <RootStack.Screen name="Lessons" component={Lessons} />
+        <RootStack.Screen name="Lessons" component={Lessons} /> */}
       </RootStack.Navigator>
     </NavigationContainer>
   );
