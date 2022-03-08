@@ -7,9 +7,9 @@ import {
   ScrollView,
   KeyboardAvoidingView,
 } from "react-native";
-import { Header } from "react-navigation-stack";
+// import { Header } from "react-navigation-stack";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import SummaryComp from "./SummaryComp";
+// import SummaryComp from "./SummaryComp";
 const PositiveForm = () => {
   const [category, setCategory] = useState({
     positive: true,
@@ -29,7 +29,6 @@ const PositiveForm = () => {
 
   //post
   const fetchPostData = async (allInputs) => {
-    // console.log(JSON.stringify(allInputs))
     const loadingData = await fetch("http://192.168.0.41:3000", {
       method: "POST",
       headers: {
@@ -39,17 +38,15 @@ const PositiveForm = () => {
       body: JSON.stringify(allInputs),
     });
     const json = await loadingData.json();
-    // console.log(json);
-    // return await loadingData.json();
     return json;
   };
   const postNewData = async (event) => {
-    // event.preventDefault();
-    await fetchPostData(category);
+    try {
+      await fetchPostData(category);
+    } catch (e) {
+      console.log(e);
+    }
   };
-  // console.log(postNewData);
-
-  // console.log(category)
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
@@ -63,7 +60,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Category</Text>
             <TextInput
               style={styles.input}
-              // value={String(category)}
+              value={category.category}
               onChangeText={(text) =>
                 setCategory({ ...category, category: text })
               }
@@ -76,7 +73,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Title</Text>
             <TextInput
               style={styles.input}
-              // value={String(category)}
+              value={category.title}
               onChangeText={(text) => {
                 setCategory({ ...category, title: text });
               }}
@@ -88,7 +85,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Date</Text>
             <TextInput
               style={styles.input}
-              // value={String(category)}
+              value={category.date}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, date: text });
@@ -99,7 +96,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Person</Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.person}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, person: text });
@@ -111,7 +108,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>Location</Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.location}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, location: text });
@@ -123,7 +120,7 @@ const PositiveForm = () => {
             <Text style={[styles.text, styles.buttonText]}>What happened?</Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.whatHappened}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, whatHappened: text });
@@ -137,7 +134,7 @@ const PositiveForm = () => {
             </Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.howDidYouFeel}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, howDidYouFeel: text });
@@ -151,7 +148,7 @@ const PositiveForm = () => {
             </Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.happenedBefore}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, happenedBefore: text });
@@ -165,7 +162,7 @@ const PositiveForm = () => {
             </Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.doDifferently}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, doDifferently: text });
@@ -179,7 +176,7 @@ const PositiveForm = () => {
             </Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.share}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, share: text });
@@ -193,7 +190,7 @@ const PositiveForm = () => {
             </Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.learned}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, learned: text });
@@ -207,7 +204,7 @@ const PositiveForm = () => {
             </Text>
             <TextInput
               style={styles.input}
-              value={String(category)}
+              value={category.plan}
               keyboardType="default"
               onChangeText={(text) => {
                 setCategory({ ...category, plan: text });
